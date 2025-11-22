@@ -1,0 +1,62 @@
+window.onload = function() {
+
+    let canvas = document.getElementById('paintCanvas');
+    let context = canvas.getContext('2d');
+    let boundings = canvas.getBoundingClientRect();
+    let range = document.getElementById('brush').value;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let isDrawing = false;
+    context.strokeStyle = 'black';
+
+    let brush = document.getElementById('brush');
+    context.lineWidth = brush ? brush.value : 1;
+
+    brush.addEventListener('input', function(e) {
+        context.lineWidth = e.target.value;
+    });
+
+    let colours = document.getElementsByClassName('colours')[0];
+
+    if (colours) {
+        let buttons = colours.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            let b = buttons[i];
+            if (b.value) b.style.backgroundColor = b.value;
+        }
+
+        colours.addEventListener('click', function(event) {
+            if (event.target && event.target.tagName === 'BUTTON') {
+                context.strokeStyle = event.target.value || 'black';
+            }
+        });
+    }
+
+    canvas.addEventListener('mousedown', function(event) {
+        setMouseCoordinates(event);
+        isDrawing = true;
+
+        context.beginPath();
+        context.moveTo(mouseX, mouseY);
+    });
+
+    canvas.addEventListener('mousemove', function(event) {
+        setMouseCoordinates(event);
+        if (isDrawing) {
+            context.lineTo(mouseX, mouseY);
+            context.stroke();
+        }
+    });
+
+    canvas.addEventListener('mouseup', function(event) {
+        setMouseCoordinates(event);
+        isDrawing = false;
+    });
+
+    function setMouseCoordinates(e) {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
+        mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
+    }
+}

@@ -1,0 +1,22 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+canvas {
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: crosshair;
+}
+
+.colours button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    margin: 4px;
+    padding: 0;
+    cursor: pointer;
+}
