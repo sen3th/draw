@@ -44,6 +44,8 @@ canvas {
 
 #clear:hover {
     background-color: #f0f0f0;
+    transform: scale(1.05);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #save {
@@ -53,4 +55,10 @@ canvas {
 }
 #save:hover {
     background-color: #f0f0f0;
+    transform: scale(1.05);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.colours button:hover {
+    border: 2px solid #000;
 }
