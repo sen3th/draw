@@ -59,4 +59,18 @@ window.onload = function() {
         mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
         mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
     }
+
+    let clearButton = document.getElementById('clear');
+    clearButton.addEventListener('click', function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    let saveButton = document.getElementById('save');
+    saveButton.addEventListener('click', function() {
+        let dataURL = canvas.toDataURL('image/png');
+        let link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'drawing.png';
+        link.click();
+    });
 }

@@ -10,6 +10,14 @@ canvas {
     border: 1px solid #000;
     background-color: #fff;
     cursor: crosshair;
+
+    display: block;
+    margin: 12px auto;
+    max-width: 90vw;
+    max-height: 70vh;
+    width: 640px;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .colours button {
@@ -19,4 +27,30 @@ canvas {
     margin: 4px;
     padding: 0;
     cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+#clear {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#clear:hover {
+    background-color: #f0f0f0;
+}
+
+#save {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#save:hover {
+    background-color: #f0f0f0;
 }
