@@ -1,3 +1,10 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 16px;
+}
+
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -60,4 +67,8 @@ canvas {
 
 .colours button:hover {
     border: 2px solid #000;
+}
+
+#brush {
+    width: 200px;
 }
