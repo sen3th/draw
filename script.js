@@ -11,10 +11,12 @@ window.onload = function() {
     context.strokeStyle = 'black';
 
     let brush = document.getElementById('brush');
+    let brushSizeDisplay = document.getElementById('brushSize');
     context.lineWidth = brush ? brush.value : 1;
 
     brush.addEventListener('input', function(e) {
         context.lineWidth = e.target.value;
+        brushSizeDisplay.innerText = e.target.value;
     });
 
     let colours = document.getElementsByClassName('colours')[0];

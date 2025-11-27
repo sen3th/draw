@@ -97,3 +97,9 @@ h1 a {
     color: black;
     cursor: default;
 }
+
+#brushSize {
+    font-weight: bold;
+    min-width: 25px;
+    display: inline-block;
+}
