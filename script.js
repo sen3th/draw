@@ -62,6 +62,32 @@ window.onload = function() {
         mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
     }
 
+    canvas.addEventListener('touchstart', function(event) {
+        event.preventDefault();
+        let touch = event.touches[0];
+        let mouseEvent = new MouseEvent('mousedown', {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener('touchmove', function(event) {
+        event.preventDefault();
+        let touch = event.touches[0];
+        let mouseEvent = new MouseEvent('mousemove', {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener('touchend', function(event) {
+        event.preventDefault();
+        let mouseEvent = new MouseEvent('mouseup', {});
+        canvas.dispatchEvent(mouseEvent);
+    });
+
     let clearButton = document.getElementById('clear');
     clearButton.addEventListener('click', function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
