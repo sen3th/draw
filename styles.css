@@ -103,3 +103,14 @@ h1 a {
     min-width: 25px;
     display: inline-block;
 }
+
+#undo {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#undo:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    transition: background-color 0.3s, transform 0.3s;
+}
