@@ -104,4 +104,9 @@ window.onload = function() {
             };
         }
     });
+
+    clearButton.addEventListener('click', function() {
+        context.clearReact(0, 0, canvas.width, canvas.height);
+        undoSave = [canvas.toDataURL()];
+    });
 }
