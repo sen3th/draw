@@ -75,4 +75,33 @@ window.onload = function() {
         link.download = 'drawing.png';
         link.click();
     });
+
+    let undoSave = [];
+    const maximumUndos = 20;
+
+    undoSave.push(canvas.toDataURL());
+
+    canvas.addEventListener('mouseup', function(event) {
+        setMouseCoordinates(event);
+        isDrawing = false;
+
+        undoSave.push(canvas.toDataURL());
+        if (undoSave.length > maximumUndos) {
+            undoSave.shift();
+        }
+    });
+
+    let undoButton = document.getElementById('undo');
+    undoButton.addEventListener('click', function() {
+        if (undoSave.length > 1) {
+            undoSave.pop();
+            let previousState = undoSave[undoSave.length - 1];
+            let img = new Image();
+            img.src = previousState;
+            img.onload = function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(img, 0, 0);
+            };
+        }
+    });
 }
